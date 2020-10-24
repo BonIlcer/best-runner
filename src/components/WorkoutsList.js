@@ -1,5 +1,4 @@
 import React from "react";
-import { VisibilityFilters } from "../actions/filterActions";
 import FilterBar from "./FilterBar";
 import WorkoutItem from "./WorkoutItem";
 

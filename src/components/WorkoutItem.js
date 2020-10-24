@@ -1,10 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteWorkout } from "../actions/workoutsActions";
 
 export default function WorkoutItem({ item }) {
+  const dispatch = useDispatch();
   return (
-    <div className="workout-item" style={{ borderBottom: "1px solid white" }}>
+    <div className="workout-item">
       <h4>Workout Item</h4>
-      <p>{JSON.stringify(item)}</p>
+      <div style={{ display: "flex" }}>
+        <span>{JSON.stringify(item)}</span>
+        <button>edit</button>
+        <button onClick={() => dispatch(deleteWorkout(item.id))}>X</button>
+      </div>
     </div>
   );
 }
