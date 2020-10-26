@@ -29,7 +29,7 @@ const getVisibleWorkouts = (workouts, filter) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("state: ", state);
+  //console.log("state: ", state);
   return {
     workoutsList: getVisibleWorkouts(
       state.rootWorkouts.workoutsData,
