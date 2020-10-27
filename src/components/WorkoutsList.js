@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
+import {
+  LABEL_COMMENT,
+  LABEL_DATE,
+  LABEL_TYPE,
+  LABEL_KILOMETRAGE,
+} from "../consts";
 import FilterBar from "./FilterBar";
 import WorkoutItem from "./WorkoutItem";
 
@@ -39,17 +45,6 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
   }
 
   useEffect(() => {
-    console.log("source: ", workoutsList);
-    setList(
-      workoutsList.map((item, index) => {
-        return <WorkoutItem item={item} key={index} />;
-      })
-    );
-    // console.log("list: ", list);
-    // console.log("sortedList: ", sortedList);
-  }, []);
-
-  useEffect(() => {
     setList(
       workoutsList.map((item, index) => {
         return <WorkoutItem item={item} key={index} />;
@@ -71,16 +66,16 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
                 style={{ cursor: "pointer" }}
                 onClick={() => sortBy(dateCompare)}
               >
-                Date
+                {LABEL_DATE}
               </th>
               <th
                 style={{ cursor: "pointer" }}
                 onClick={() => sortBy(kilometrageCompare)}
               >
-                Kilometrage
+                {LABEL_KILOMETRAGE}
               </th>
-              <th>Type</th>
-              <th>Comment</th>
+              <th>{LABEL_TYPE}</th>
+              <th>{LABEL_COMMENT}</th>
               <th></th>
             </tr>
           </thead>
@@ -89,8 +84,6 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
       ) : (
         <h3>Список пуст</h3>
       )}
-      {/* <hr />
-      {sortedList} */}
     </div>
   );
 }

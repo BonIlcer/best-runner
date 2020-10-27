@@ -1,12 +1,13 @@
 import React from "react";
-
 import "./App.css";
+import AddWorkout from "./containers/AddWorkout";
 import VisibleWorkoutList from "./containers/VisibleWorkoutList";
 
 function App() {
   return (
     <div className="App">
       <h1>App: Best Runner</h1>
+      <AddWorkout />
       <VisibleWorkoutList />
     </div>
   );

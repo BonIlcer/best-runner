@@ -9,6 +9,20 @@ export const TYPE_WALKING = "TYPE_WALKING";
 export const TYPE_SKIING = "TYPE_SKIING";
 export const TYPE_CYCLING = "TYPE_CYCLING";
 
+export const LABEL_DATE = "Дата";
+export const LABEL_KILOMETRAGE = "Километраж";
+export const LABEL_TYPE = "Тип тренировки";
+export const LABEL_COMMENT = "Комментарий";
+
+export const LABEL_TYPE_RUNNING = "Бег";
+export const LABEL_TYPE_WALKING = "Ходьба";
+export const LABEL_TYPE_SKIING = "Лыжи";
+export const LABEL_TYPE_CYCLING = "Велосипед";
+
+export const PLACEHOLDER_KILOMETRAGE = "Введите километраж";
+export const PLACEHOLDER_TYPE = "Выберите тип";
+export const PLACEHOLDER_COMMENT = "Оставьте комментарий";
+
 export const WORKOUTS_LIST = [
   {
     id: "id2",
