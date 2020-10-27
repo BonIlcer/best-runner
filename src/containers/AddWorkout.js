@@ -50,7 +50,7 @@ function AddWorkout({ values, handleSubmit, handleChange }) {
               name={KILOMETRAGE}
               id={KILOMETRAGE}
               placeholder={PLACEHOLDER_KILOMETRAGE}
-              value={values.kilometrage}
+              value={values[KILOMETRAGE]}
               onChange={handleChange}
               required
             />
@@ -81,7 +81,7 @@ function AddWorkout({ values, handleSubmit, handleChange }) {
               name={COMMENT}
               id={COMMENT}
               placeholder={PLACEHOLDER_COMMENT}
-              value={values.comment}
+              value={values[COMMENT]}
               onChange={handleChange}
             />
           </FormGroup>
@@ -96,14 +96,11 @@ const AddWorkoutFormik = withFormik({
   displayName: "AddWorkoutForm",
   mapPropsToValues: () => ({
     [DATE]: new Date().toISOString().substr(0, 10),
-    [KILOMETRAGE]: undefined,
+    [KILOMETRAGE]: "",
     [TYPE]: "",
     [COMMENT]: "",
   }),
-  handleSubmit: (values, { props, setSubmitting }) => {
-    console.log("Formik submit");
-    console.log(props);
-    console.log(values);
+  handleSubmit: (values, { props, setSubmitting, resetForm }) => {
     const workout = {
       id: Date.now(),
       date: values[DATE],
@@ -113,6 +110,7 @@ const AddWorkoutFormik = withFormik({
     };
     props.dispatch(createWorkout(workout));
     setSubmitting = false;
+    resetForm();
   },
 })(AddWorkout);
 
