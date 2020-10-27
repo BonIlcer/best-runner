@@ -27,11 +27,6 @@ const TYPE = "add-form-type";
 const COMMENT = "add-form-comment";
 
 function AddWorkout({ values, handleSubmit, handleChange }) {
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
-  //   formData.forEach((value, key) => console.log(key + ": " + value));
-  // }
   return (
     <>
       <h2>Add Workout</h2>
@@ -45,18 +40,19 @@ function AddWorkout({ values, handleSubmit, handleChange }) {
               id={DATE}
               value={values[DATE]}
               onChange={handleChange}
-              //defaultValue={new Date().toISOString().substr(0, 10)}
             />
           </FormGroup>
           <FormGroup>
             <Label htmlFor={KILOMETRAGE}>{LABEL_KILOMETRAGE}</Label>
             <Input
               type="number"
+              min={0}
               name={KILOMETRAGE}
               id={KILOMETRAGE}
               placeholder={PLACEHOLDER_KILOMETRAGE}
               value={values.kilometrage}
               onChange={handleChange}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -67,8 +63,9 @@ function AddWorkout({ values, handleSubmit, handleChange }) {
               id={TYPE}
               value={values[TYPE]}
               onChange={handleChange}
+              required
             >
-              <option value={PLACEHOLDER_TYPE} disabled hidden>
+              <option value="" disabled hidden>
                 {PLACEHOLDER_TYPE}
               </option>
               <option value={TYPE_RUNNING}>{LABEL_TYPE_RUNNING}</option>
@@ -100,7 +97,7 @@ const AddWorkoutFormik = withFormik({
   mapPropsToValues: () => ({
     [DATE]: new Date().toISOString().substr(0, 10),
     [KILOMETRAGE]: undefined,
-    [TYPE]: PLACEHOLDER_TYPE,
+    [TYPE]: "",
     [COMMENT]: "",
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
