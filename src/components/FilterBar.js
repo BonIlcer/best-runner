@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "reactstrap";
 import { VisibilityFilters } from "../actions/filterActions";
 
 export default function FilterBar({ setVisibilityFilter }) {
@@ -7,41 +8,41 @@ export default function FilterBar({ setVisibilityFilter }) {
       className="filter-bar"
       style={{ display: "flex", justifyContent: "space-evenly" }}
     >
-      <button
+      <Button
         onClick={() => {
           setVisibilityFilter(VisibilityFilters.SHOW_ALL);
         }}
       >
         SHOW_ALL
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => {
           setVisibilityFilter(VisibilityFilters.SHOW_RUNNING);
         }}
       >
         SHOW_RUNNING
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => {
           setVisibilityFilter(VisibilityFilters.SHOW_WALKING);
         }}
       >
         SHOW_WALKING
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => {
           setVisibilityFilter(VisibilityFilters.SHOW_SKIING);
         }}
       >
         SHOW_SKIING
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => {
           setVisibilityFilter(VisibilityFilters.SHOW_CYCLING);
         }}
       >
         SHOW_CYCLING
-      </button>
+      </Button>
     </div>
   );
 }
