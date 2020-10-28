@@ -10,7 +10,7 @@ export const TYPE_SKIING = "TYPE_SKIING";
 export const TYPE_CYCLING = "TYPE_CYCLING";
 
 export const LABEL_DATE = "Дата";
-export const LABEL_KILOMETRAGE = "Километраж";
+export const LABEL_KILOMETRAGE = "Км";
 export const LABEL_TYPE = "Тип тренировки";
 export const LABEL_COMMENT = "Комментарий";
 

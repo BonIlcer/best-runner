@@ -59,7 +59,7 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
       <FilterBar setVisibilityFilter={setVisibilityFilter} />
       <hr />
       {list ? (
-        <Table>
+        <Table responsive hover>
           <thead>
             <tr>
               <th
