@@ -15,3 +15,17 @@ code {
 .add-form-group-min-width {
   min-width: 175px;
 }
+
+td.text-overflow {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+td.text-overflow:hover {
+  max-width: 300px;
+  overflow: visible;
+  text-overflow: none;
+  white-space: normal;
+}
