@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 import { deleteWorkout } from "../actions/workoutsActions";
+import {
+  TYPE_CYCLING,
+  TYPE_RUNNING,
+  TYPE_SKIING,
+  TYPE_WALKING,
+} from "../consts";
 
 const styledTd = {
   maxWidth: "300px",
@@ -12,14 +18,29 @@ const styledTd = {
 
 export default function WorkoutItem({ item }) {
   const [isEdit, setEditing] = useState(false);
-
   const dispatch = useDispatch();
+
+  function typeLabel(type) {
+    switch (type) {
+      case TYPE_RUNNING:
+        return "Бег";
+      case TYPE_WALKING:
+        return "Ходьба";
+      case TYPE_SKIING:
+        return "Лыжи";
+      case TYPE_CYCLING:
+        return "Велосипед";
+      default:
+        return "Error";
+    }
+  }
+
   return (
     <>
       <tr>
         <td>{item.date}</td>
         <td>{item.kilometrage}</td>
-        <td>{item.type}</td>
+        <td>{typeLabel(item.type)}</td>
         <td className="text-overflow">{item.comment}</td>
         <td>
           <div>
