@@ -104,6 +104,7 @@ function AddWorkout({ values, handleSubmit, handleChange }) {
                     <Label htmlFor={COMMENT}>{LABEL_COMMENT}</Label>
                     <Input
                       type="textarea"
+                      maxLength={256}
                       name={COMMENT}
                       id={COMMENT}
                       placeholder={PLACEHOLDER_COMMENT}
