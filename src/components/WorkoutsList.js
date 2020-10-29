@@ -11,11 +11,36 @@ import WorkoutItem from "./WorkoutItem";
 
 const WORKOUTS_LIST = "Список тренировок";
 
+const caretDownIcon = (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 16 16"
+    className="bi bi-caret-down-fill"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+  </svg>
+);
+const caretUpIcon = (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 16 16"
+    className="bi bi-caret-up-fill"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+  </svg>
+);
+
 function WorkoutsList({ workoutsList, setVisibilityFilter }) {
   const [list, setList] = useState(null);
   // true - Ascending Order, false - Descending order
-  const [kmOrder, setKmOrder] = useState(true);
-  const [dateOrder, setDateOrder] = useState(true);
+  const [kmOrder, setKmOrder] = useState(undefined);
+  const [dateOrder, setDateOrder] = useState(undefined);
 
   function kilometrageCompare(a, b) {
     if (kmOrder) {
@@ -52,6 +77,8 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
         return <WorkoutItem item={item} key={index} />;
       })
     );
+    setDateOrder(undefined);
+    setKmOrder(undefined);
   }, [workoutsList]);
 
   return (
@@ -70,13 +97,17 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
                     style={{ cursor: "pointer" }}
                     onClick={() => sortBy(dateCompare)}
                   >
-                    {LABEL_DATE}
+                    {LABEL_DATE + " "}
+                    {dateOrder === true ? caretUpIcon : ""}
+                    {dateOrder === false ? caretDownIcon : ""}
                   </th>
                   <th
                     style={{ cursor: "pointer" }}
                     onClick={() => sortBy(kilometrageCompare)}
                   >
-                    {LABEL_KILOMETRAGE}
+                    {LABEL_KILOMETRAGE + " "}
+                    {kmOrder === true ? caretUpIcon : ""}
+                    {kmOrder === false ? caretDownIcon : ""}
                   </th>
                   <th>{LABEL_TYPE}</th>
                   <th>{LABEL_COMMENT}</th>
