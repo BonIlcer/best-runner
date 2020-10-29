@@ -45,10 +45,10 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
   function kilometrageCompare(a, b) {
     if (kmOrder) {
       setKmOrder(false);
-      return a.kilometrage < b.kilometrage ? -1 : 1;
+      return Number(a.kilometrage) < Number(b.kilometrage) ? -1 : 1;
     } else {
       setKmOrder(true);
-      return a.kilometrage > b.kilometrage ? -1 : 1;
+      return Number(a.kilometrage) > Number(b.kilometrage) ? -1 : 1;
     }
   }
 
