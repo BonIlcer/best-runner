@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils";
 import {
   CREATE_WORKOUT,
   DELETE_WORKOUT,
@@ -14,7 +15,19 @@ export const workoutsReducer = (state = initialState, action) => {
     case CREATE_WORKOUT:
       return { workoutsData: state.workoutsData.concat(action.workout) };
     case EDIT_WORKOUT:
-      return { workoutsData: state.workoutsData };
+      return {
+        workoutsData: state.workoutsData.map((workout) =>
+          workout.id === action.workout.id
+            ? {
+                ...workout,
+                date: action.workout.date,
+                type: action.workout.type,
+                kilometrage: action.workout.kilometrage,
+                comment: action.workout.comment,
+              }
+            : workout
+        ),
+      };
     case DELETE_WORKOUT:
       return {
         workoutsData: state.workoutsData.filter(

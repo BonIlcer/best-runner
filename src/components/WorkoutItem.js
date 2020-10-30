@@ -8,6 +8,7 @@ import {
   TYPE_SKIING,
   TYPE_WALKING,
 } from "../consts";
+import EditWorkout from "../containers/EditWorkout";
 
 const pencilIcon = (
   <svg
@@ -46,6 +47,7 @@ export default function WorkoutItem({ item }) {
 
   return (
     <>
+      <EditWorkout item={item} isOpen={isEdit} setOpen={setEditing} />
       <tr>
         <td>{item.date}</td>
         <td>{item.kilometrage}</td>
