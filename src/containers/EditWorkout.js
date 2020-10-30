@@ -120,7 +120,9 @@ function EditWorkout({ isOpen, setOpen, values, handleSubmit, handleChange }) {
                   </FormGroup>
                 </Col>
               </Row>
-              <Button color="primary">{SAVE}</Button>
+              <Button type="submit" color="primary">
+                {SAVE}
+              </Button>
             </Form>
           </CardBody>
         </Card>
@@ -147,7 +149,7 @@ const EditWorkoutFormik = withFormik({
     };
     props.dispatch(editWorkout(workout));
     setSubmitting = false;
-    //resetForm();
+    props.setOpen(false);
   },
 })(EditWorkout);
 
