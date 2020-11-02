@@ -21,12 +21,25 @@ const SAVE = "Сохранить";
 const CANCEL = "Отменить";
 const EDIT_WORKOUT = "Редактировать тренировку";
 
+const customStyles = {
+  overlay: {
+    zIndex: "2",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    maxHeight: "100%",
+    overflow: "auto",
+  },
+};
+
 ReactModal.setAppElement("#root");
-ReactModal.defaultStyles.overlay.zIndex = "2";
+ReactModal.defaultStyles.content = "";
 
 function EditWorkout({ isOpen, setOpen, values, handleSubmit, handleChange }) {
   return (
-    <ReactModal isOpen={isOpen}>
+    <ReactModal isOpen={isOpen} style={customStyles}>
       <Card>
         <CardHeader tag="h2">{EDIT_WORKOUT}</CardHeader>
         <CardBody>
