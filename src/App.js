@@ -6,7 +6,7 @@ import VisibleWorkoutList from "./containers/VisibleWorkoutList";
 function App() {
   return (
     <div className="App">
-      <h1>App: Best Runner</h1>
+      <h1 className="title">Best Runner</h1>
       <AddWorkout />
       <VisibleWorkoutList />
     </div>

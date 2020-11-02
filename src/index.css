@@ -7,9 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.title {
+  font-weight: 400;
+  letter-spacing: 1.2rem;
+  text-align: center;
+  margin: 20px 0;
 }
 
 .form-group-min-width {
