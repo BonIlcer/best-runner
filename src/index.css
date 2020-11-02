@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.add-form-group-min-width {
+.form-group-min-width {
   min-width: 175px;
 }
 

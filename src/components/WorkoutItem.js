@@ -27,7 +27,7 @@ const pencilIcon = (
 );
 
 export default function WorkoutItem({ item }) {
-  const [isEdit, setEditing] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   function typeLabel(type) {
@@ -47,7 +47,7 @@ export default function WorkoutItem({ item }) {
 
   return (
     <>
-      <EditWorkout item={item} isOpen={isEdit} setOpen={setEditing} />
+      <EditWorkout item={item} isOpen={isOpen} setOpen={setOpen} />
       <tr>
         <td>{item.date}</td>
         <td>{item.kilometrage}</td>
@@ -55,7 +55,7 @@ export default function WorkoutItem({ item }) {
         <td className="text-overflow">{item.comment}</td>
         <td>
           <div>
-            <Button color="primary" onClick={() => setEditing(!isEdit)}>
+            <Button color="primary" onClick={() => setOpen(true)}>
               {pencilIcon}
             </Button>{" "}
             <Button

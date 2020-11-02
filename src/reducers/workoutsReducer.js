@@ -1,4 +1,3 @@
-import { act } from "react-dom/test-utils";
 import {
   CREATE_WORKOUT,
   DELETE_WORKOUT,
