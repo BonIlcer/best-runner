@@ -39,7 +39,7 @@ function EditWorkout({ isOpen, setOpen, values, handleSubmit, handleChange }) {
               <>
                 <Button type="submit" color="primary">
                   {SAVE}
-                </Button>
+                </Button>{" "}
                 <Button onClick={() => setOpen(false)} color="danger">
                   {CANCEL}
                 </Button>

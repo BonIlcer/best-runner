@@ -93,7 +93,7 @@ export default function WorkoutForm({
           </FormGroup>
         </Col>
       </Row>
-      {Buttons}
+      <FormGroup style={{ textAlign: "right" }}>{Buttons}</FormGroup>
     </Form>
   );
 }
