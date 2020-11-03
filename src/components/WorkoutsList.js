@@ -37,7 +37,7 @@ const caretUpIcon = (
 );
 
 function WorkoutsList({ workoutsList, setVisibilityFilter }) {
-  const [list, setList] = useState(null);
+  const [list, setList] = useState([]);
   // true - Ascending Order, false - Descending order
   const [kmOrder, setKmOrder] = useState(undefined);
   const [dateOrder, setDateOrder] = useState(undefined);
@@ -89,7 +89,7 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
           <FilterBar setVisibilityFilter={setVisibilityFilter} />
         </CardBody>
         <CardBody>
-          {list ? (
+          {list.length !== 0 ? (
             <Table responsive hover>
               <thead>
                 <tr>
@@ -117,7 +117,7 @@ function WorkoutsList({ workoutsList, setVisibilityFilter }) {
               <tbody>{list}</tbody>
             </Table>
           ) : (
-            <h3>Список пуст</h3>
+            <h3 style={{ textAlign: "center" }}>Список пуст</h3>
           )}
         </CardBody>
       </Card>
