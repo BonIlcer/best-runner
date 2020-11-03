@@ -35,7 +35,7 @@ const customStyles = {
 };
 
 ReactModal.setAppElement("#root");
-ReactModal.defaultStyles.content = "";
+ReactModal.defaultStyles.content = {};
 
 function EditWorkout({ isOpen, setOpen, values, handleSubmit, handleChange }) {
   return (
