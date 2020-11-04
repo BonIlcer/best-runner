@@ -38,6 +38,24 @@ export function editWorkout(workout) {
   return { type: EDIT_WORKOUT, workout };
 }
 
+export function newEditWorkout(workout) {
+  return async (dispatch) => {
+    let response = await fetch("http://localhost:3001/workouts/" + workout.id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(workout),
+    });
+    if (response.ok) {
+      const json = await response.json();
+      dispatch(editWorkout(json));
+    } else {
+      console.log("Edit workout | HTTP status code: " + response.status);
+    }
+  };
+}
+
 export function fetchWorkouts() {
   return async (dispatch) => {
     let response = await fetch("http://localhost:3001/workouts");

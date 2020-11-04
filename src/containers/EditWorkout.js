@@ -3,7 +3,7 @@ import React from "react";
 import ReactModal from "react-modal";
 import { connect } from "react-redux";
 import { Button, Card, CardBody, CardHeader } from "reactstrap";
-import { editWorkout } from "../actions/workoutsActions";
+import { editWorkout, newEditWorkout } from "../actions/workoutsActions";
 import WorkoutForm from "../components/WorkoutForm";
 
 const DATE = "edit-form-date";
@@ -50,9 +50,7 @@ function EditWorkout({ isOpen, setOpen, values, handleSubmit, handleChange }) {
             consts={consts}
             Buttons={
               <>
-                <Button type="submit" color="primary">
-                  {SAVE}
-                </Button>{" "}
+                <Button color="primary">{SAVE}</Button>{" "}
                 <Button onClick={() => setOpen(false)} color="danger">
                   {CANCEL}
                 </Button>
@@ -77,11 +75,11 @@ const EditWorkoutFormik = withFormik({
     const workout = {
       id: props.item.id,
       date: values[DATE],
-      kilometrage: values[KILOMETRAGE],
+      kilometrage: values[KILOMETRAGE].toString(),
       type: values[TYPE],
       comment: values[COMMENT],
     };
-    props.dispatch(editWorkout(workout));
+    props.dispatch(newEditWorkout(workout));
     setSubmitting = false;
     props.setOpen(false);
   },

@@ -58,7 +58,6 @@ const AddWorkoutFormik = withFormik({
       comment: values[COMMENT],
     };
     props.dispatch(newCreateWorkout(workout));
-    //props.dispatch(createWorkout(workout));
     setSubmitting = false;
     resetForm();
   },

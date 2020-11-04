@@ -82,6 +82,15 @@ app.post("/workouts", (req, res) => {
   res.send(workout);
 });
 
+app.put("/workouts/:id", (req, res) => {
+  let workout = workouts.find((workout) => workout.id === req.params.id);
+  workout.date = req.body.date;
+  workout.kilometrage = req.body.kilometrage;
+  workout.type = req.body.type;
+  workout.comment = req.body.comment;
+  res.send(workout);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
