@@ -75,3 +75,13 @@ app.get("/", (req, res) => {
 app.get("/workouts", (req, res) => {
   res.send(workouts);
 });
+
+app.post("/workouts", (req, res) => {
+  const workout = req.body;
+  workouts.push(workout);
+  res.send(workout);
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});

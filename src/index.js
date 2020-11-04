@@ -1,17 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import thunk from "redux-thunk";
+import { applyMiddleware, compose, createStore } from "redux";
+import { Provider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { rootReducer } from "./reducers/rootReducer";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { fetchWorkouts } from "./actions/workoutsActions";
 
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
+
+store.dispatch(fetchWorkouts());
 
 ReactDOM.render(
   <React.StrictMode>

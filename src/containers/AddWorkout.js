@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import React from "react";
 import { connect } from "react-redux";
-import { createWorkout } from "../actions/workoutsActions";
+import { createWorkout, newCreateWorkout } from "../actions/workoutsActions";
 import { Button, Card, CardBody, CardHeader, Container } from "reactstrap";
 import WorkoutForm from "../components/WorkoutForm";
 
@@ -51,13 +51,14 @@ const AddWorkoutFormik = withFormik({
   }),
   handleSubmit: (values, { props, setSubmitting, resetForm }) => {
     const workout = {
-      id: Date.now(),
+      id: Date.now().toString(),
       date: values[DATE],
-      kilometrage: values[KILOMETRAGE],
+      kilometrage: values[KILOMETRAGE].toString(),
       type: values[TYPE],
       comment: values[COMMENT],
     };
-    props.dispatch(createWorkout(workout));
+    props.dispatch(newCreateWorkout(workout));
+    //props.dispatch(createWorkout(workout));
     setSubmitting = false;
     resetForm();
   },

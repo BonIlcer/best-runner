@@ -2,11 +2,12 @@ import {
   CREATE_WORKOUT,
   DELETE_WORKOUT,
   EDIT_WORKOUT,
+  FETCH_WORKOUTS,
   WORKOUTS_LIST,
 } from "../consts";
 
 const initialState = {
-  workoutsData: WORKOUTS_LIST,
+  workoutsData: [], //WORKOUTS_LIST,
 };
 
 export const workoutsReducer = (state = initialState, action) => {
@@ -32,6 +33,10 @@ export const workoutsReducer = (state = initialState, action) => {
         workoutsData: state.workoutsData.filter(
           (workout) => workout.id !== action.id
         ),
+      };
+    case FETCH_WORKOUTS:
+      return {
+        workoutsData: action.workouts,
       };
     default:
       return state;
