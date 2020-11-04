@@ -3,7 +3,7 @@ import React from "react";
 import ReactModal from "react-modal";
 import { connect } from "react-redux";
 import { Button, Card, CardBody, CardHeader } from "reactstrap";
-import { editWorkout, newEditWorkout } from "../actions/workoutsActions";
+import { newEditWorkout } from "../actions/workoutsActions";
 import WorkoutForm from "../components/WorkoutForm";
 
 const DATE = "edit-form-date";

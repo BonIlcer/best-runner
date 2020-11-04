@@ -3,11 +3,10 @@ import {
   DELETE_WORKOUT,
   EDIT_WORKOUT,
   FETCH_WORKOUTS,
-  WORKOUTS_LIST,
 } from "../consts";
 
 const initialState = {
-  workoutsData: [], //WORKOUTS_LIST,
+  workoutsData: [],
 };
 
 export const workoutsReducer = (state = initialState, action) => {

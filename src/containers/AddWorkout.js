@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import React from "react";
 import { connect } from "react-redux";
-import { createWorkout, newCreateWorkout } from "../actions/workoutsActions";
+import { newCreateWorkout } from "../actions/workoutsActions";
 import { Button, Card, CardBody, CardHeader, Container } from "reactstrap";
 import WorkoutForm from "../components/WorkoutForm";
 
