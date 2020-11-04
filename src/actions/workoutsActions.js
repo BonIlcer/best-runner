@@ -34,6 +34,22 @@ export function deleteWorkout(workoutId) {
   };
 }
 
+export function newDeleteWorkout(workoutId) {
+  return async (dispatch) => {
+    let response = await fetch("http://localhost:3001/workouts/" + workoutId, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    });
+    if (response.ok) {
+      dispatch(deleteWorkout(workoutId));
+    } else {
+      console.log("Delete workout | HTTP status code: " + response.status);
+    }
+  };
+}
+
 export function editWorkout(workout) {
   return { type: EDIT_WORKOUT, workout };
 }

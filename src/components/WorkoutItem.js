@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
-import { deleteWorkout } from "../actions/workoutsActions";
+import { deleteWorkout, newDeleteWorkout } from "../actions/workoutsActions";
 import {
   TYPE_CYCLING,
   TYPE_RUNNING,
@@ -60,7 +60,7 @@ export default function WorkoutItem({ item }) {
             </Button>{" "}
             <Button
               color="danger"
-              onClick={() => dispatch(deleteWorkout(item.id))}
+              onClick={() => dispatch(newDeleteWorkout(item.id))}
             >
               &#10005;
             </Button>

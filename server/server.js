@@ -7,7 +7,7 @@ const port = 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
-var workouts = [
+let workouts = [
   {
     id: "id2",
     date: "2020-10-17",
@@ -89,6 +89,11 @@ app.put("/workouts/:id", (req, res) => {
   workout.type = req.body.type;
   workout.comment = req.body.comment;
   res.send(workout);
+});
+
+app.delete("/workouts/:id", (req, res) => {
+  workouts = workouts.filter((workout) => workout.id !== req.params.id);
+  res.sendStatus(200);
 });
 
 app.listen(port, () => {
